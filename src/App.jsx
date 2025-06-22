@@ -21,6 +21,8 @@ const App = () => (
     {/* <Testimonials /> */}
     <Contact />
     <Footer />
+          <p className="flex-center mb-2">call me:01550565354</p>
+
   </>
 );
 
