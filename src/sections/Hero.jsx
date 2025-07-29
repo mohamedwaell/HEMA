@@ -39,7 +39,7 @@ const Hero = () => {
                           src={word.imgPath}
                           alt="person"
                           className="xl:size-12 md:size-10 size-7 md:p-2 p-1 rounded-full bg-white-50"
-                        />
+                           loading="lazy"/>
                         <span>{word.text}</span>
                       </span>
                     ))}
@@ -67,7 +67,8 @@ const Hero = () => {
         <figure>
           <div className="hero-3d-layout flex-center">
             {/* <HeroExperience /> */}
-            <img src="/me.png" alt="" className="w-[50vw] md:w-[20vw]  rounded-full"/>
+            <img src="/me.png" alt="" className="w-[50vw] lg:w-[20vw] md:w-[30vw] rounded-full md:mt-0 mt-10 shadow-lg ring-20 ring-[#1a001f] shadow-[0_0_20px_8px_rgba(80,0,110,0.7)] animate-pulse"
+            loading="lazy"/>
           </div>
         </figure>
       </div>
