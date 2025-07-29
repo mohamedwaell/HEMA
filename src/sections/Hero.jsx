@@ -65,8 +65,9 @@ const Hero = () => {
 
         {/* RIGHT: 3D Model or Visual */}
         <figure>
-          <div className="hero-3d-layout">
-            <HeroExperience />
+          <div className="hero-3d-layout flex-center">
+            {/* <HeroExperience /> */}
+            <img src="/me.png" alt="" className="w-[50vw] md:w-[20vw]  rounded-full"/>
           </div>
         </figure>
       </div>

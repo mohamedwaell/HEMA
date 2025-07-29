@@ -1,5 +1,5 @@
 // HeroExperience.jsx
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas} from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useMediaQuery } from "react-responsive";
 import { Suspense, useRef } from "react";
@@ -46,7 +46,7 @@ const HeroExperience = () => {
 
       <Suspense fallback={null}>
         <HeroLights />
-        <Particles count={100} />
+        <Particles count={500} />
         <AnimatedRoom isMobile={isMobile} />
       </Suspense>
     </Canvas>
