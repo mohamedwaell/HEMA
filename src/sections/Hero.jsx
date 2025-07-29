@@ -67,7 +67,7 @@ const Hero = () => {
         <figure>
           <div className="hero-3d-layout flex-center">
             {/* <HeroExperience /> */}
-            <img src="/me.png" alt="" className="w-[50vw] lg:w-[20vw] md:w-[30vw] rounded-full md:mt-0 mt-10 shadow-lg ring-20 ring-[#1a001f] shadow-[0_0_20px_8px_rgba(80,0,110,0.7)] animate-pulse"
+            <img src="/me.png" alt="" className="w-[50vw] lg:w-[20vw] md:w-[30vw] rounded-full md:mt-0 mt-35 shadow-lg ring-30 ring-[#1a001f] shadow-[0_0_20px_8px_rgba(80,0,110,0.7)] animate-pulse"
             loading="lazy"/>
           </div>
         </figure>
