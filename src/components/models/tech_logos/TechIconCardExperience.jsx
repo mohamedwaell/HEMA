@@ -1,4 +1,6 @@
 import { Environment, Float, OrbitControls, useGLTF } from "@react-three/drei";
+import { useMediaQuery } from "react-responsive";
+
 import { Canvas } from "@react-three/fiber";
 import { useEffect } from "react";
 import * as THREE from "three";
@@ -17,7 +19,7 @@ const TechIconCardExperience = ({ model }) => {
       });
     }
   }, [scene]);
-
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   return (
     <Canvas>
       <ambientLight intensity={0.3} />
@@ -53,8 +55,8 @@ const TechIconCardExperience = ({ model }) => {
         </group>
       </Float>
 
-      {/* <OrbitControls enableZoom={false} /> */}
-    </Canvas>
+{isMobile ? null :      <OrbitControls enableZoom={false} />
+}    </Canvas>
   );
 };
 
