@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 
@@ -10,7 +11,9 @@ import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 
 const Hero = () => {
+  const [enableControls, setEnableControls] = useState(true)
 
+  // GSAP Animation
   useGSAP(() => {
     gsap.fromTo(
       '.hero-text h1',
@@ -19,7 +22,17 @@ const Hero = () => {
     )
   })
 
- 
+  // Check screen size
+  useEffect(() => {
+    const updateControls = () => {
+      setEnableControls(window.innerWidth >= 640) // disable OrbitControls on small screens
+    }
+
+    updateControls()
+    window.addEventListener('resize', updateControls)
+    return () => window.removeEventListener('resize', updateControls)
+  }, [])
+
   return (
     <section id="hero" className="relative overflow-hidden">
       <div className="absolute top-0 left-0 z-10">
@@ -75,7 +88,7 @@ const Hero = () => {
             <Canvas camera={{ position: [0, 0, 5], fov: 50 }} dpr={[1, 1.5]} shadows={false}>
               <ambientLight intensity={1.5} />
               <directionalLight position={[2, 2, 2]} />
-            <OrbitControls enableZoom={false}/>
+              {enableControls && <OrbitControls />}
               <PhotoCircle />
             </Canvas>
           </div>
