@@ -86,7 +86,7 @@ const Hero = () => {
         <figure>
           <div className="hero-3d-layout flex-center mt-10 md:mt-0">
             <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
-              <ambientLight intensity={0.5} />
+              <ambientLight intensity={1.5} />
               <directionalLight position={[2, 2, 2]} />
               {enableControls && <OrbitControls />}
               <PhotoCircle />
