@@ -1,19 +1,37 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+import React, { useState, useEffect } from 'react'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
 
-import AnimatedCounter from "../components/AnimatedCounter";
-import Button from "../components/Button";
-import { words } from "../constants";
-import HeroExperience from "../components/models/hero_models/HeroExperience";
+import AnimatedCounter from '../components/AnimatedCounter'
+import Button from '../components/Button'
+import { words } from '../constants'
+import HeroExperience from '../components/models/hero_models/HeroExperience'
+import PhotoCircle from '../components/models/hero_models/PhotoCircle.jsx'
+import { Canvas } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
 
 const Hero = () => {
+  const [enableControls, setEnableControls] = useState(true)
+
+  // GSAP Animation
   useGSAP(() => {
     gsap.fromTo(
-      ".hero-text h1",
+      '.hero-text h1',
       { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "power2.inOut" }
-    );
-  });
+      { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: 'power2.inOut' }
+    )
+  })
+
+  // Check screen size
+  useEffect(() => {
+    const updateControls = () => {
+      setEnableControls(window.innerWidth >= 640) // disable OrbitControls on small screens
+    }
+
+    updateControls()
+    window.addEventListener('resize', updateControls)
+    return () => window.removeEventListener('resize', updateControls)
+  }, [])
 
   return (
     <section id="hero" className="relative overflow-hidden">
@@ -39,7 +57,8 @@ const Hero = () => {
                           src={word.imgPath}
                           alt="person"
                           className="xl:size-12 md:size-10 size-7 md:p-2 p-1 rounded-full bg-white-50"
-                           loading="lazy"/>
+                          loading="lazy"
+                        />
                         <span>{word.text}</span>
                       </span>
                     ))}
@@ -65,17 +84,20 @@ const Hero = () => {
 
         {/* RIGHT: 3D Model or Visual */}
         <figure>
-          <div className="hero-3d-layout flex-center">
-            {/* <HeroExperience /> */}
-            <img src="/me.jpg" alt="" className="w-[50vw] lg:w-[20vw] md:w-[30vw] rounded-full md:mt-0 mt-35 shadow-lg ring-30 ring-[#1a001f] shadow-[0_0_20px_8px_rgba(80,0,110,0.7)] animate-pulse"
-            loading="lazy"/>
+          <div className="hero-3d-layout flex-center mt-10 md:mt-0">
+            <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+              <ambientLight intensity={0.5} />
+              <directionalLight position={[2, 2, 2]} />
+              {enableControls && <OrbitControls />}
+              <PhotoCircle />
+            </Canvas>
           </div>
         </figure>
       </div>
- 
+
       <AnimatedCounter />
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero
