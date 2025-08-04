@@ -1,29 +1,29 @@
-import React, { useRef, useState, useEffect } from 'react'
-import { useFrame, useLoader } from '@react-three/fiber'
-import { TextureLoader, DoubleSide } from 'three'
+import React, {  useState, useEffect } from 'react'
+import {  useLoader } from '@react-three/fiber'
+import { TextureLoader } from 'three'
 
 const PhotoCircle = ({
-  imageUrl = '/me.jpg' // Only one image used for both sides
+  frontImageUrl = '/me.jpg',
+  backImageUrl = '/images/hema.jpg'
 }) => {
-  const texture = useLoader(TextureLoader, imageUrl)
-  const meshRef = useRef()
+  const frontTexture = useLoader(TextureLoader, frontImageUrl)
+  const backTexture = useLoader(TextureLoader, backImageUrl)
+
+  
 
   const [radius, setRadius] = useState(1.5)
   const [segments, setSegments] = useState(64)
-  const [rotationSpeed, setRotationSpeed] = useState(0.5)
-
-  // Responsive adjustments
+ 
+  // Responsive adjustments for radius, segments, and speed
   useEffect(() => {
     const updateSettings = () => {
       const screenWidth = window.innerWidth
       if (screenWidth < 640) {
-        setRadius(1)
-        setSegments(32)
-        setRotationSpeed(0.8)
+        setRadius(1)          // Smaller size on phones
+        setSegments(32)       // Fewer segments
       } else {
         setRadius(1.5)
         setSegments(64)
-        setRotationSpeed(1)
       }
     }
 
@@ -32,17 +32,26 @@ const PhotoCircle = ({
     return () => window.removeEventListener('resize', updateSettings)
   }, [])
 
-  useFrame((_, delta) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y += delta * rotationSpeed
-    }
-  })
-
+  // Smooth rotation (frame-rate independent)
+  
   return (
-    <mesh ref={meshRef}>
-      <circleGeometry args={[radius, segments]} />
-      <meshStandardMaterial map={texture} side={DoubleSide} />
-    </mesh>
+    <>
+      {/* Front Side */}
+      <mesh >
+        <circleGeometry args={[radius, segments]} />
+        <meshStandardMaterial map={frontTexture} />
+      </mesh>
+
+      {/* Back Side (flipped) */}
+      <mesh
+      
+        rotation={[0, Math.PI, 0]}
+        position={[0, 0, -0.001]} // slight offset to prevent z-fighting
+      >
+        <circleGeometry args={[radius, segments]} />
+        <meshStandardMaterial map={backTexture} />
+      </mesh>
+    </>
   )
 }
 
