@@ -11,29 +11,36 @@ const PhotoCircle = ({
 
   const frontRef = useRef()
   const backRef = useRef()
-  const [radius, setRadius] = useState(2)
 
-  // Responsive radius based on screen size
+  const [radius, setRadius] = useState(1.5)
+  const [segments, setSegments] = useState(64)
+  const [rotationSpeed, setRotationSpeed] = useState(0.5)
+
+  // Responsive adjustments for radius, segments, and speed
   useEffect(() => {
-    const updateRadius = () => {
+    const updateSettings = () => {
       const screenWidth = window.innerWidth
       if (screenWidth < 640) {
-        setRadius(1) // Small screen
+        setRadius(1)          // Smaller size on phones
+        setSegments(32)       // Fewer segments
+        setRotationSpeed(0.2) // Slower rotation
       } else {
-        setRadius(1.5) // Large screen
+        setRadius(1.5)
+        setSegments(64)
+        setRotationSpeed(0.5)
       }
     }
 
-    updateRadius()
-    window.addEventListener('resize', updateRadius)
-    return () => window.removeEventListener('resize', updateRadius)
+    updateSettings()
+    window.addEventListener('resize', updateSettings)
+    return () => window.removeEventListener('resize', updateSettings)
   }, [])
 
-  // Animate rotation
-  useFrame(() => {
+  // Smooth rotation (frame-rate independent)
+  useFrame((_, delta) => {
     if (frontRef.current && backRef.current) {
-      frontRef.current.rotation.y += 0.01
-      backRef.current.rotation.y += 0.01
+      frontRef.current.rotation.y += delta * rotationSpeed
+      backRef.current.rotation.y += delta * rotationSpeed
     }
   })
 
@@ -41,13 +48,17 @@ const PhotoCircle = ({
     <>
       {/* Front Side */}
       <mesh ref={frontRef}>
-        <circleGeometry args={[radius, 64]} />
+        <circleGeometry args={[radius, segments]} />
         <meshStandardMaterial map={frontTexture} />
       </mesh>
 
       {/* Back Side (flipped) */}
-      <mesh ref={backRef} rotation={[0, Math.PI, 0]} position={[0, 0, -0.001]}>
-        <circleGeometry args={[radius, 64]} />
+      <mesh
+        ref={backRef}
+        rotation={[0, Math.PI, 0]}
+        position={[0, 0, -0.001]} // slight offset to prevent z-fighting
+      >
+        <circleGeometry args={[radius, segments]} />
         <meshStandardMaterial map={backTexture} />
       </mesh>
     </>
