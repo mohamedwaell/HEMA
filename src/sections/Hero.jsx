@@ -79,7 +79,7 @@ const Hero = () => {
               className="md:w-80 md:h-16 w-60 h-12"
               id="counter"
             />
-          </div>
+          </div> 
         </header>
 
         {/* RIGHT: 3D Model or Visual */}
