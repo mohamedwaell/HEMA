@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+// import React, { useState, useEffect } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 
@@ -11,7 +11,7 @@ import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 
 const Hero = () => {
-  const [enableControls, setEnableControls] = useState(true)
+  // const [enableControls, setEnableControls] = useState(true)
 
   // GSAP Animation
   useGSAP(() => {
@@ -23,15 +23,15 @@ const Hero = () => {
   })
 
   // Check screen size
-  useEffect(() => {
-    const updateControls = () => {
-      setEnableControls(window.innerWidth >= 640) // disable OrbitControls on small screens
-    }
+  // useEffect(() => {
+  //   const updateControls = () => {
+  //     setEnableControls(window.innerWidth >= 640) // disable OrbitControls on small screens
+  //   }
 
-    updateControls()
-    window.addEventListener('resize', updateControls)
-    return () => window.removeEventListener('resize', updateControls)
-  }, [])
+  //   updateControls()
+  //   window.addEventListener('resize', updateControls)
+  //   return () => window.removeEventListener('resize', updateControls)
+  // }, [])
 
   return (
     <section id="hero" className="relative overflow-hidden">
@@ -85,15 +85,17 @@ const Hero = () => {
         {/* RIGHT: 3D Model or Visual */}
         <figure>
           <div className="hero-3d-layout flex-center mt-10 md:mt-0">
-            <Canvas camera={{ position: [0, 0, 5], fov: 50 }} dpr={[1, 1.5]} shadows={false}>
+            {/* <Canvas camera={{ position: [0, 0, 5], fov: 50 }} dpr={[1, 1.5]} shadows={false}>
               <ambientLight intensity={1.5} />
               <directionalLight position={[2, 2, 2]} />
               {enableControls && <OrbitControls />}
               <PhotoCircle />
-            </Canvas>
+            </Canvas> */}
+             <img src="/me.jpg" alt="" className="w-[50vw] lg:w-[20vw] md:w-[30vw] rounded-full md:mt-0 mt-35 shadow-lg ring-30 ring-[#1a001f] shadow-[0_0_20px_8px_rgba(80,0,110,0.7)] animate-pulse"
+            loading="lazy"/>
           </div>
         </figure>
-      </div>
+      </div> 
 
       <AnimatedCounter />
     </section>
