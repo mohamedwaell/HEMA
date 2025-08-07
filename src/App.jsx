@@ -9,7 +9,6 @@ import ShowcaseSection from "./sections/ShowcaseSection";
 import LogoShowcase from "./sections/LogoShowcase";
 import FeatureCards from "./sections/FeatureCards";
 import Navbar from "./components/NavBar";
-import StartScreen from "./components/StartScreen"; // 👈 Start screen after loading
 
 const App = () => {
   const [loading, setLoading] = useState(true);   // for loading screen
@@ -21,7 +20,7 @@ const App = () => {
       setTimeout(() => {
         setLoading(false);
         setTimeout(() => setVisible(false), 1000); // fade out
-      }, 2000); // simulate loading delay
+      }, 2000);
     };
 
     if (document.readyState === "complete") {
@@ -42,13 +41,34 @@ const App = () => {
   //   );
   // }
   if (!started) {
-    return <StartScreen onStart={() => setStarted(true)} />;
+    
+      const handleStart = () => {
+    const sound = new Audio("/audios/audio2.mp3");
+        setStarted(true);
+    setTimeout(()=>{
+          sound.play()
+      
+      .catch((err) => {
+        console.warn("Sound blocked, continuing anyway",err);
+      });
+    },3500) 
+  
+  };
+
+  return (
+    <div className="w-full h-screen flex flex-col items-center justify-center bg-black text-white text-xl">
+      <button
+        onClick={handleStart}
+        className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl text-white font-semibold text-2xl transition"
+      >
+        Click to Start
+      </button>
+      <p className="mt-4 text-sm opacity-50">Sound will play after clicking</p>
+    </div>
+  );
   }
 
-  // Phase 2: Start screen (after loading)
   
-
-  // Phase 3: Main App
   return (
     <>
     {loading || visible?
