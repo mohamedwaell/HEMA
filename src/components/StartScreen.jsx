@@ -2,15 +2,17 @@ import React from "react";
 
 const StartScreen = ({ onStart }) => {
   const handleStart = () => {
-    const sound = new Audio("/audios/audio2.mp3"); // use public folder
-    sound.play()
-      .then(() => {
-        onStart(); // continue to app
-      })
+    const sound = new Audio("/audios/audio2.mp3");
+        onStart();
+
+    setTimeout(()=>{
+          sound.play()
+      
       .catch((err) => {
         console.warn("Sound blocked, continuing anyway",err);
-        onStart(); // continue even if sound fails
       });
+    },2000) 
+  
   };
 
   return (
