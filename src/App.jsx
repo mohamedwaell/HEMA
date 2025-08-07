@@ -34,13 +34,7 @@ const App = () => {
   }, []);
   
   // Phase 1: Loading screen
-  if (loading || visible) {
-    return (
-      <div className="fixed top-0 left-0 w-full h-full z-50 flex items-center justify-center bg-white dark:bg-black transition-opacity duration-700">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-opacity-50" />
-      </div>
-    );
-  }
+  
   if (!started) {
     return <StartScreen onStart={() => setStarted(true)} />;
   }
@@ -51,6 +45,13 @@ const App = () => {
   // Phase 3: Main App
   return (
     <>
+    {loading || visible?
+    (
+      <div className="fixed top-0 left-0 w-full h-full z-50 flex items-center justify-center bg-white dark:bg-black transition-opacity duration-700">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-opacity-50" />
+      </div>
+    ) :''
+  }
       <Navbar />
       <Hero />
       {/* <ShowcaseSection /> */}
