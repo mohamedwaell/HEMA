@@ -2,7 +2,7 @@ import React from "react";
 
 const StartScreen = ({ onStart }) => {
   const handleStart = () => {
-    const sound = new Audio("/audios/audio.mp3"); // use public folder
+    const sound = new Audio("/audios/audio2.mp3"); // use public folder
     sound.play()
       .then(() => {
         onStart(); // continue to app

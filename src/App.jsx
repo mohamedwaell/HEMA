@@ -34,6 +34,9 @@ const App = () => {
   }, []);
 
   // Phase 1: Loading screen
+  if (!started) {
+    return <StartScreen onStart={() => setStarted(true)} />;
+  }
   if (loading || visible) {
     return (
       <div className="fixed top-0 left-0 w-full h-full z-50 flex items-center justify-center bg-white dark:bg-black transition-opacity duration-700">
@@ -43,9 +46,7 @@ const App = () => {
   }
 
   // Phase 2: Start screen (after loading)
-  if (!started) {
-    return <StartScreen onStart={() => setStarted(true)} />;
-  }
+  
 
   // Phase 3: Main App
   return (
