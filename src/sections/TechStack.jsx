@@ -1,12 +1,12 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import TitleHeader from "../components/TitleHeader";
-import TechIconCardExperience from "../components/models/tech_logos/TechIconCardExperience";
-import { techStackIcons, techStackImgs } from "../constants";
-import { useEffect, useState } from "react";
+// import TechIconCardExperience from "../components/models/tech_logos/TechIconCardExperience";
+import {  techStackImgs } from "../constants";
+// import { useEffect, useState } from "react";
 
 const TechStack = () => {
-  const [isMobile, setIsMobile] = useState(true);
+  // const [isMobile, setIsMobile] = useState(true);
 
   useGSAP(() => {
     gsap.fromTo(
@@ -26,15 +26,15 @@ const TechStack = () => {
     );
   });
 
-  useEffect(() => {
-    const updateControls = () => {
-      setIsMobile(window.innerWidth < 640);
-    };
+  // useEffect(() => {
+  //   const updateControls = () => {
+  //     setIsMobile(window.innerWidth < 640);
+  //   };
 
-    updateControls();
-    window.addEventListener("resize", updateControls);
-    return () => window.removeEventListener("resize", updateControls);
-  }, []);
+  //   updateControls();
+  //   window.addEventListener("resize", updateControls);
+  //   return () => window.removeEventListener("resize", updateControls);
+  // }, []);
 
   return (
     <div id="skills" className="flex-center section-padding">
@@ -44,8 +44,10 @@ const TechStack = () => {
           sub="🤝 What I Bring to the Table"
         />
         <div className="tech-grid">
-          {isMobile
-            ? techStackImgs.map((techStackIcon, index) => (
+          {
+          // isMobile
+          //   ? 
+            techStackImgs.map((techStackIcon, index) => (
                 <div
                   key={index}
                   className="card-border tech-card overflow-hidden group xl:rounded-full rounded-lg"
@@ -61,22 +63,23 @@ const TechStack = () => {
                   </div>
                 </div>
               ))
-            : techStackIcons.map((techStackIcon) => (
-                <div
-                  key={techStackIcon.name}
-                  className="card-border tech-card overflow-hidden group xl:rounded-full rounded-lg"
-                >
-                  <div className="tech-card-animated-bg" />
-                  <div className="tech-card-content">
-                    <div className="tech-icon-wrapper">
-                      <TechIconCardExperience model={techStackIcon} />
-                    </div>
-                    <div className="padding-x w-full">
-                      <p>{techStackIcon.name}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+            // : techStackIcons.map((techStackIcon) => (
+            //     <div
+            //       key={techStackIcon.name}
+            //       className="card-border tech-card overflow-hidden group xl:rounded-full rounded-lg"
+            //     >
+            //       <div className="tech-card-animated-bg" />
+            //       <div className="tech-card-content">
+            //         <div className="tech-icon-wrapper">
+            //           <TechIconCardExperience model={techStackIcon} />
+            //         </div>
+            //         <div className="padding-x w-full">
+            //           <p>{techStackIcon.name}</p>
+            //         </div>
+            //       </div>
+            //     </div>
+            //   ))
+              }
         </div>
       </div>
     </div>
