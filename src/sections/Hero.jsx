@@ -94,7 +94,7 @@ const Hero = () => {
               <PhotoCircle />
             </Canvas>
             ):(
-                <img src="/images/hema.jpg" alt="" className="w-[50vw] lg:w-[20vw] md:w-[30vw] rounded-full md:mt-0 mt-35 shadow-lg ring-30 ring-[#1a001f] shadow-[0_0_20px_8px_rgba(80,0,110,0.7)] "
+                <img src="/me.jpg" alt="" className="w-[50vw] lg:w-[20vw] md:w-[30vw] rounded-full md:mt-0 mt-35 shadow-lg ring-30 ring-[#1a001f] shadow-[0_0_20px_8px_rgba(80,0,110,0.7)] "
             loading="lazy"/>
             )}
            
