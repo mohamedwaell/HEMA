@@ -1,17 +1,17 @@
-// import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 
 import AnimatedCounter from '../components/AnimatedCounter'
 import Button from '../components/Button'
 import { words } from '../constants'
-// import HeroExperience from '../components/models/hero_models/HeroExperience'
-// import PhotoCircle from '../components/models/hero_models/PhotoCircle.jsx'
-// import { Canvas } from '@react-three/fiber'
-// import { OrbitControls } from '@react-three/drei'
+import HeroExperience from '../components/models/hero_models/HeroExperience'
+import PhotoCircle from '../components/models/hero_models/PhotoCircle.jsx'
+import { Canvas } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
 
 const Hero = () => {
-  // const [enableControls, setEnableControls] = useState(true)
+  const [enableControls, setEnableControls] = useState(true)
 
   // GSAP Animation
   useGSAP(() => {
@@ -23,15 +23,15 @@ const Hero = () => {
   })
 
   // Check screen size
-  // useEffect(() => {
-  //   const updateControls = () => {
-  //     setEnableControls(window.innerWidth >= 640) // disable OrbitControls on small screens
-  //   }
+  useEffect(() => {
+    const updateControls = () => {
+      setEnableControls(window.innerWidth >= 640) // disable OrbitControls on small screens
+    }
 
-  //   updateControls()
-  //   window.addEventListener('resize', updateControls)
-  //   return () => window.removeEventListener('resize', updateControls)
-  // }, [])
+    updateControls()
+    window.addEventListener('resize', updateControls)
+    return () => window.removeEventListener('resize', updateControls)
+  }, [enableControls])
 
   return (
     <section id="hero" className="relative overflow-hidden">
@@ -86,17 +86,17 @@ const Hero = () => {
         <figure>
           
           <div className="hero-3d-layout flex-center mt-10 md:mt-0">
-            {/* {enableControls ? (
+            {enableControls ? (
                <Canvas camera={{ position: [0, 0, 5], fov: 50 }} dpr={[1, 1.5]} shadows={false}>
               <ambientLight intensity={1.5} />
               <directionalLight position={[2, 2, 2]} />
             <OrbitControls enableZoom={false}/>
               <PhotoCircle />
             </Canvas>
-            ):( */}
+            ):(
                 <img src="/me.jpg" alt="" className="w-[50vw] lg:w-[20vw] md:w-[30vw] rounded-full md:mt-0 mt-35 shadow-lg ring-30 ring-[#1a001f] shadow-[0_0_20px_8px_rgba(80,0,110,0.7)] "
             loading="lazy"/>
-            {/* )} */}
+             )} 
            
            
           </div>

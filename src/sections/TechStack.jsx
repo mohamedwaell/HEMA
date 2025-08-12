@@ -16,11 +16,12 @@ const TechStack = () => {
         y: 0,
         opacity: 1,
         duration: 1,
-        ease: "power2.inOut",
-        stagger: 0.2,
+      ease: "power3.out",
         scrollTrigger: {
           trigger: "#skills",
-          start: "top center",
+          start: "top 80%", 
+          end: "top 30%",   
+          scrub: 1,         
         },
       }
     );
