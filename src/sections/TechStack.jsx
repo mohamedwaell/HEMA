@@ -1,8 +1,8 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import TitleHeader from "../components/TitleHeader";
-import TechIconCardExperience from "../components/models/tech_logos/TechIconCardExperience";
-import { techStackIcons } from "../constants";
+// import TechIconCardExperience from "../components/models/tech_logos/TechIconCardExperience";
+import {  techStackImgs } from "../constants";
 // import { useEffect, useState } from "react";
 
 const TechStack = () => {
@@ -25,6 +25,22 @@ const TechStack = () => {
         },
       }
     );
+    gsap.fromTo(
+      ".flow",
+      {
+        y:-20,
+         
+
+      },{
+        y:20,
+        duration:2,
+        ease:"power1.inOut",
+        repeat:-1,
+        yoyo:true,
+
+
+      }
+    )
   });
 
   // useEffect(() => {
@@ -48,32 +64,15 @@ const TechStack = () => {
           {
           // isMobile
           //   ? 
-            // techStackImgs.map((techStackIcon, index) => (
-            //     <div
-            //       key={index}
-            //       className="card-border tech-card overflow-hidden group xl:rounded-full rounded-lg"
-            //     >
-            //       <div className="tech-card-animated-bg" />
-            //       <div className="tech-card-content">
-            //         <div className="tech-icon-wrapper">
-            //           <img src={techStackIcon.imgPath} alt="" className="w-32" />
-            //         </div>
-            //         <div className="padding-x w-full">
-            //           <p>{techStackIcon.name}</p>
-            //         </div>
-            //       </div>
-            //     </div>
-            //   ))
-            // : 
-            techStackIcons.map((techStackIcon) => (
+            techStackImgs.map((techStackIcon, index) => (
                 <div
-                  key={techStackIcon.name}
+                  key={index}
                   className="card-border tech-card overflow-hidden group xl:rounded-full rounded-lg"
                 >
                   <div className="tech-card-animated-bg" />
                   <div className="tech-card-content">
                     <div className="tech-icon-wrapper">
-                      <TechIconCardExperience model={techStackIcon} />
+                      <img src={techStackIcon.imgPath} alt="" className="w-32 flow" />
                     </div>
                     <div className="padding-x w-full">
                       <p>{techStackIcon.name}</p>
@@ -81,6 +80,22 @@ const TechStack = () => {
                   </div>
                 </div>
               ))
+            // : techStackIcons.map((techStackIcon) => (
+            //     <div
+            //       key={techStackIcon.name}
+            //       className="card-border tech-card overflow-hidden group xl:rounded-full rounded-lg"
+            //     >
+            //       <div className="tech-card-animated-bg" />
+            //       <div className="tech-card-content">
+            //         <div className="tech-icon-wrapper">
+            //           <TechIconCardExperience model={techStackIcon} />
+            //         </div>
+            //         <div className="padding-x w-full">
+            //           <p>{techStackIcon.name}</p>
+            //         </div>
+            //       </div>
+            //     </div>
+            //   ))
               }
         </div>
       </div>
