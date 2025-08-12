@@ -9,6 +9,7 @@ import ShowcaseSection from "./sections/ShowcaseSection";
 import LogoShowcase from "./sections/LogoShowcase";
 import FeatureCards from "./sections/FeatureCards";
 import Navbar from "./components/NavBar";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 const App = () => {
   const [loading, setLoading] = useState(true);   // for loading screen
@@ -90,8 +91,7 @@ const App = () => {
     {/* <Testimonials /> */}
     <Contact />
     <Footer />
-          <p className="flex-center mb-2">call me:01550565354</p>
-
+        <WhatsAppButton />
     </>
   );
 };

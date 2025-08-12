@@ -11,7 +11,7 @@ const TechStack = () => {
   useGSAP(() => {
     gsap.fromTo(
       ".tech-card",
-      { y: 50, opacity: 0 },
+      { y: 100, opacity: 0 },
       {
         y: 0,
         opacity: 1,
@@ -37,8 +37,6 @@ const TechStack = () => {
         ease:"power1.inOut",
         repeat:-1,
         yoyo:true,
-
-
       }
     )
   });
