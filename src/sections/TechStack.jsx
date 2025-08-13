@@ -1,5 +1,5 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+// import { useGSAP } from "@gsap/react";
+// import gsap from "gsap";
 import TitleHeader from "../components/TitleHeader";
 // import TechIconCardExperience from "../components/models/tech_logos/TechIconCardExperience";
 import {  techStackImgs } from "../constants";
@@ -8,38 +8,38 @@ import {  techStackImgs } from "../constants";
 const TechStack = () => {
   // const [isMobile, setIsMobile] = useState(true);
 
-  useGSAP(() => {
-    gsap.fromTo(
-      ".tech-card",
-      { y: 100, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-      ease: "power3.out",
-        scrollTrigger: {
-          trigger: "#skills",
-          start: "top 80%", 
-          end: "top 30%",   
-          scrub: 1,         
-        },
-      }
-    );
-    gsap.fromTo(
-      ".flow",
-      {
-        y:-20,
+  // useGSAP(() => {
+  //   gsap.fromTo(
+  //     ".tech-card",
+  //     { y: 100, opacity: 0 },
+  //     {
+  //       y: 0,
+  //       opacity: 1,
+  //       duration: 1,
+  //     ease: "power3.out",
+  //       scrollTrigger: {
+  //         trigger: "#skills",
+  //         start: "top 80%", 
+  //         end: "top 30%",   
+  //         scrub: 1,         
+  //       },
+  //     }
+  //   );
+  //   gsap.fromTo(
+  //     ".flow",
+  //     {
+  //       y:-20,
          
 
-      },{
-        y:20,
-        duration:2,
-        ease:"power1.inOut",
-        repeat:-1,
-        yoyo:true,
-      }
-    )
-  });
+  //     },{
+  //       y:20,
+  //       duration:2,
+  //       ease:"power1.inOut",
+  //       repeat:-1,
+  //       yoyo:true,
+  //     }
+  //   )
+  // });
 
   // useEffect(() => {
   //   const updateControls = () => {
@@ -70,7 +70,7 @@ const TechStack = () => {
                   <div className="tech-card-animated-bg" />
                   <div className="tech-card-content">
                     <div className="tech-icon-wrapper">
-                      <img src={techStackIcon.imgPath} alt="" className="w-32 flow" />
+                      <img src={techStackIcon.imgPath} alt="" className="w-32 cardan" />
                     </div>
                     <div className="padding-x w-full">
                       <p>{techStackIcon.name}</p>

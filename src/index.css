@@ -470,3 +470,16 @@ section {
 .card:hover::before {
   opacity: 1;
 }
+
+.cardan {
+  animation: translteY 2s linear infinite alternate;
+}
+
+@keyframes translteY {
+  from {
+    transform: translateY(-15px);
+  }
+  to {
+    transform: translateY(15px);
+  }
+}
