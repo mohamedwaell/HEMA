@@ -12,7 +12,7 @@ const PhotoCircle = ({
   const frontRef = useRef()
   const backRef = useRef()
 
-  const [radius, setRadius] = useState(1.5)
+  const [radius, setRadius] = useState(1.2)
   const [segments, setSegments] = useState(64)
   const [rotationSpeed, setRotationSpeed] = useState(0.5)
 
@@ -25,7 +25,7 @@ const PhotoCircle = ({
         setSegments(32)       // Fewer segments
         setRotationSpeed(0.8) // Slower rotation
       } else {
-        setRadius(1.5)
+        setRadius(1.2)
         setSegments(64)
         setRotationSpeed(1)
       }

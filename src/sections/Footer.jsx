@@ -14,11 +14,11 @@ const Footer = () => {
             </a>
           ))}
         </div>
-        <div className="flex flex-col justify-center">
+        <a className="flex flex-col justify-center" href="#">
           <p className="text-center md:text-end">
             © {new Date().getFullYear()} HEMA. All rights reserved.
           </p>
-        </div>
+        </a>
       </div>
     </footer>
   );
