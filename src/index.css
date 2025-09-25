@@ -312,11 +312,11 @@ section {
       @apply flex items-center justify-center gap-5;
 
       .icon {
-        @apply border border-black-50 bg-black-100 flex justify-center items-center rounded-xl size-10 md:size-12 cursor-pointer transition-all duration-500 hover:bg-black-50;
+        @apply border border-black-50 bg-black-100 flex justify-center items-center rounded-xl size-10  md:size-12 cursor-pointer transition-all duration-500 hover:bg-black-50;
       }
 
       img {
-        @apply inline-block;
+        @apply inline-block w-7 h-7 md:w-8 md:h-8;
       }
     }
   }

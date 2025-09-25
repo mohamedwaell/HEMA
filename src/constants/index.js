@@ -32,7 +32,7 @@ const counterItems = [
   { value: 1, suffix: "+", label: "Years of Experience" },
   { value: -1, suffix: "+", label: "Satisfied Clients" },
   { value: 5, suffix: "+", label: "Completed Projects" },
-  { value: .001, suffix: "%", label: "Client Retention Rate" },
+  { value: 0.001, suffix: "%", label: "Client Retention Rate" },
 ];
 
 const logoIconsList = [
@@ -147,7 +147,8 @@ const techStackIcons = [
 
 const expCards = [
   {
-    review: "Adrian brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
+    review:
+      "Adrian brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
     imgPath: "/images/exp1.png",
     logoPath: "/images/logo1.png",
     title: "Frontend Developer",
@@ -159,7 +160,8 @@ const expCards = [
     ],
   },
   {
-    review: "Adrian’s contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
+    review:
+      "Adrian’s contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
     imgPath: "/images/exp2.png",
     logoPath: "/images/logo2.png",
     title: "Full Stack Developer",
@@ -171,7 +173,8 @@ const expCards = [
     ],
   },
   {
-    review: "Adrian’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.",
+    review:
+      "Adrian’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.",
     imgPath: "/images/exp3.png",
     logoPath: "/images/logo3.png",
     title: "React Native Developer",
@@ -248,22 +251,22 @@ const socialImgs = [
   {
     name: "insta",
     imgPath: "/images/insta.png",
-    path:"https://www.instagram.com/ahmadreda20185?igsh=MXNra2tnMDd5Z2RnbA=="
+    path: "https://www.instagram.com/ahmadreda20185?igsh=MXNra2tnMDd5Z2RnbA==",
   },
   {
     name: "fb",
     imgPath: "/images/fb.png",
-    path:"https://www.facebook.com/share/1CCZvwcqTo/"
+    path: "https://www.facebook.com/share/1CCZvwcqTo/",
   },
-  // {
-  //   name: "x",
-  //   imgPath: "/images/x.png",
-  //   path:""
-  // },
+  {
+    name: "x",
+    imgPath: "/images/github.png",
+    path: "https://github.com/HEMA-HEMDAN",
+  },
   {
     name: "linkedin",
     imgPath: "/images/linkedin.png",
-    path:"https://www.linkedin.com/in/ibrahim-hemdan-8b1159365?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    path: "https://www.linkedin.com/in/ibrahim-hemdan-8b1159365?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
   },
 ];
 
