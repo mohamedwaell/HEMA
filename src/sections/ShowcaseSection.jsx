@@ -20,7 +20,11 @@ const AppShowcase = () => {
     );
 
     // Animations for each app showcase
-    const cards = [rydeRef.current, libraryRef.current, ycDirectoryRef.current];
+    const cards = [
+      rydeRef.current,
+      libraryRef.current,
+      ycDirectoryRef.current,
+    ].filter(Boolean);
 
     cards.forEach((card, index) => {
       gsap.fromTo(
@@ -36,7 +40,7 @@ const AppShowcase = () => {
           delay: 0.3 * (index + 1),
           scrollTrigger: {
             trigger: card,
-            start: "top bottom-=100",
+            start: "top bottom-=100px",
           },
         }
       );
@@ -49,13 +53,19 @@ const AppShowcase = () => {
         <div className="showcaselayout">
           <div ref={rydeRef} className="first-project-wrapper">
             <div className="image-wrapper">
-              <img src="/images/project1.png" alt="Ryde App Interface" />
+              <a
+                href="https://athar-masr.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/images/projects/masr.png"
+                  alt="Athar Masr project screenshot"
+                />
+              </a>
             </div>
             <div className="text-content">
-              <h2>
-                On-Demand Rides Made Simple with a Powerful, User-Friendly App
-                called Ryde
-              </h2>
+              <h2>Athar Masr - Egyptian Heritage App</h2>
               <p className="text-white-50 md:text-xl">
                 An app built with React Native, Expo, & TailwindCSS for a fast,
                 user-friendly experience.
@@ -65,20 +75,34 @@ const AppShowcase = () => {
 
           <div className="project-list-wrapper overflow-hidden">
             <div className="project" ref={libraryRef}>
-              <div className="image-wrapper bg-[#FFEFDB]">
+              <a
+                href="https://overdosemath.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="image-wrapper "
+              >
                 <img
-                  src="/images/project2.png"
-                  alt="Library Management Platform"
+                  src="/images/projects/mo.png"
+                  alt="Overdose Math web app screenshot"
                 />
-              </div>
-              <h2>The Library Management Platform</h2>
+              </a>
+              <h2>Overdose Math - Learning Platform</h2>
             </div>
 
             <div className="project" ref={ycDirectoryRef}>
-              <div className="image-wrapper bg-[#FFE7EB]">
-                <img src="/images/project3.png" alt="YC Directory App" />
-              </div>
-              <h2>YC Directory - A Startup Showcase App</h2>
+              <a
+                href="https://dr-ahmed-gad.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="image-wrapper"
+              >
+                <img
+                  src="/images/projects/ahmed.png"
+                  alt="Dr Ahmed Gad website screenshot"
+                />
+              </a>
+
+              <h2>Dr Ahmed Gad - Medical Clinic Website</h2>
             </div>
           </div>
         </div>

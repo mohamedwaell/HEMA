@@ -12,8 +12,8 @@ import Navbar from "./components/NavBar";
 import WhatsAppButton from "./components/WhatsAppButton";
 
 const App = () => {
-  const [loading, setLoading] = useState(true);   // for loading screen
-  const [visible, setVisible] = useState(true);   // for fade effect
+  const [loading, setLoading] = useState(true); // for loading screen
+  const [visible, setVisible] = useState(true); // for fade effect
   // const [started, setStarted] = useState(false);  // for start screen
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const App = () => {
 
     return () => window.removeEventListener("load", handleLoad);
   }, []);
-  
+
   // Phase 1: Loading screen
   // if(loading || visible){
   //   return(
@@ -42,18 +42,18 @@ const App = () => {
   //   );
   // }
   // if (!started) {
-    
+
   //     const handleStart = () => {
   //   const sound = new Audio("/audios/audio2.mp3");
   //       setStarted(true);
   //   setTimeout(()=>{
   //         sound.play()
-      
+
   //     .catch((err) => {
   //       console.warn("Sound blocked, continuing anyway",err);
   //     });
-  //   },3500) 
-  
+  //   },3500)
+
   // };
 
   // return (
@@ -69,29 +69,30 @@ const App = () => {
   // );
   // }
 
-  
-    return (
+  return (
     <>
       <div
         className={`fixed top-0 left-0 w-full h-full z-50 flex items-center justify-center bg-white dark:bg-black transition-opacity duration-700 z-50${
-          loading ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          loading
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         } ${visible ? "" : "hidden"}`}
       >
         <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-opacity-50" />
       </div>
 
       {/* Main App */}
-          <Navbar />
-    <Hero />
-    {/* <ShowcaseSection /> */}
-    <LogoShowcase />
-    <FeatureCards />
-    {/* <Experience /> */}
-    <TechStack />
-    {/* <Testimonials /> */}
-    <Contact />
-    <Footer />
-        <WhatsAppButton />
+      <Navbar />
+      <Hero />
+      <ShowcaseSection />
+      <LogoShowcase />
+      <FeatureCards />
+      {/* <Experience /> */}
+      <TechStack />
+      {/* <Testimonials /> */}
+      <Contact />
+      <Footer />
+      <WhatsAppButton />
     </>
   );
 };
