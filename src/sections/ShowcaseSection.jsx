@@ -76,7 +76,7 @@ const AppShowcase = () => {
           <div className="project-list-wrapper overflow-hidden">
             <div className="project" ref={libraryRef}>
               <a
-                href="https://overdosemath.vercel.app/"
+                href="https://overdosemath.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="image-wrapper "
