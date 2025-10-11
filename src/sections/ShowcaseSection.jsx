@@ -54,7 +54,7 @@ const AppShowcase = () => {
           <div ref={rydeRef} className="first-project-wrapper">
             <div className="image-wrapper">
               <a
-                href="https://athar-masr.vercel.app/"
+                href="https://masr.pages.dev/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
