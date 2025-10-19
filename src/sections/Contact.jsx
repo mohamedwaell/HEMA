@@ -32,6 +32,7 @@ const Contact = () => {
 
       // Reset form and stop loading
       setForm({ name: "", email: "", message: "" });
+      window.alert("Email sent successfully!");
     } catch (error) {
       console.error("EmailJS Error:", error); // Optional: show toast
     } finally {
